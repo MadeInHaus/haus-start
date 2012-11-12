@@ -1,0 +1,92 @@
+#!/usr/bin/env python
+import sys
+import os
+import getopt
+
+def usage(code = 2, message=None):
+    help = """Create a Django project from a template.
+
+    --template-dir
+    The directory to use as the template for the new project. The template
+    directory should contain a file named haus_start_settings.py that has a
+    callable after_copy that will be run once the files have been copied.
+
+    --help -h
+    Prints this message
+
+    --no-prompt -s
+    All prompts will be skipped and default values used.
+
+    --no-git
+    Does not create a git repo for the new project.
+    """
+
+    if message:
+        print >> sys.stderr, message
+    print "usage: haus-start [--template-dir=templatedir] [--no-prompt or -s] [--no-git] project_name"
+    print "usage: haus-start [--help]"
+    print "usage: haus-start [--version or -v]"
+    if code == 0:
+        print help
+    sys.exit(code)
+
+def confirm(prompt, resp=False):
+    while True:
+        ans = raw_input(prompt)
+        if not ans:
+            return resp
+        if ans not in ['y', 'Y', 'n', 'N']:
+            print 'please enter y or n.'
+            continue
+        if ans == 'y' or ans == 'Y':
+            return True
+        if ans == 'n' or ans == 'N':
+            return False
+
+def main(args):
+
+    pos_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    sys.path.append(pos_dir)
+    import haus_start
+
+    no_prompt=False
+    no_git = False
+    template_dir = None
+
+    try:
+        opts, args = getopt.getopt(args, "hsv", [ "template-dir=", "help", "no-prompt", "no-git", "version"])
+    except getopt.GetoptError, err:
+        print str(err)
+        usage()
+
+    for o, a in opts:
+        if o == "--template-dir":
+            if os.path.isdir(a):
+                template_dir = a
+            else:
+                usage(message="invalid directory %s" % a)
+        elif o in ("-h", "--help"):
+            usage(0)
+        elif o in ("-v", "--version"):
+            print haus_start.__version__
+            sys.exit(0)
+        elif o in ("-s", "--no-prompt"):
+            no_prompt = True
+        elif o in ("--no-git",):
+            no_git = True
+        else:
+            assert False, "unhandled option"
+
+    project_folder = None
+    if not len(args) > 0:
+        if not no_prompt:
+            if not confirm("Install in current folder? [y/n]"):
+                sys.exit()
+    else:
+        project_folder = args[0]
+
+    haus_start.start_project(project_folder, template_dir, no_prompt, no_git)
+    sys.path.remove(pos_dir)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
