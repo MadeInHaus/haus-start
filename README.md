@@ -8,7 +8,7 @@ Creating a project
 ------------------
 
 
-    $ git clone git@github.com:MadeInHaus/haus-start.git
+    git clone git@github.com:MadeInHaus/haus-start.git
     ./haus-start/bin/haus-start ProjectName
 
 
