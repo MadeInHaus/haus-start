@@ -15,9 +15,14 @@ def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
         copy_from = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                     'templates', 'project', 'django-template'))
 
-        if not os.path.exists(os.path.join(copy_from, '.git'):
+        current_dir = os.getcwdu()
+        os.chdir(os.path.join(os.path.dirname(__file__), '..'))
+        if not os.path.exists(os.path.join(copy_from, '.git')):
+             print "Initializing django-templat submodule"
              os.system("git submodule init")
-         os.system("git submodule update")
+        os.system("git submodule update")
+        os.chdir(current_dir)
+        print "django-template submodule updated\n"
 
 
     if not copy_to:
