@@ -15,6 +15,11 @@ def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
         copy_from = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                     'templates', 'project', 'django-template'))
 
+        if not os.path.exists(os.path.join(copy_from, '.git'):
+             os.system("git submodule init")
+         os.system("git submodule update")
+
+
     if not copy_to:
         copy_to = os.getcwd()
         copy_tree(copy_from, copy_to)
