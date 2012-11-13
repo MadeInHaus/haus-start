@@ -13,7 +13,7 @@ __version__ = '.'.join(VERSION)
 def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
     if not copy_from:
         copy_from = os.path.abspath(os.path.join(os.path.dirname(__file__),
-                                    'templates', 'project', 'ff0000'))
+                                    'templates', 'project', 'django-template'))
 
     if not copy_to:
         copy_to = os.getcwd()
@@ -21,7 +21,8 @@ def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
         matches = []
         for root, dirnames, filenames in os.walk(copy_to):
             for filename in fnmatch.filter(filenames, '*.pyc') + \
-                            fnmatch.filter(filenames, 'haus_start*'):
+                            fnmatch.filter(filenames, 'haus_start*') +\
+                            fnmatch.filter(filenames, '.git'):
                 matches.append(os.path.join(root, filename))
 
         for m in matches:
@@ -31,7 +32,7 @@ def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
         if os.path.exists(copy_to):
             print "%s already exists" % copy_to
             return
-        shutil.copytree(copy_from, copy_to, ignore=shutil.ignore_patterns('haus_start*','*.pyc'))
+        shutil.copytree(copy_from, copy_to, ignore=shutil.ignore_patterns('haus_start*','*.pyc','.git'))
 
     # 2. If template has a settings file, run its after_copy method
     settings_path = os.path.join(copy_from, 'haus_start_settings.py')

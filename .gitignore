@@ -1,0 +1,14 @@
+.DS_Store
+*.pyc
+build
+dist
+.DS_Store
+*.local.py
+.project
+.pydevproject
+.settings
+.coverage
+MANIFEST
+.idea
+.vagrant
+
