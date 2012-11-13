@@ -7,8 +7,16 @@ How to use
 Creating a project
 ------------------
 
-    pip install pip install git+https://github.com/madeinhaus/haus-start.git
-    haus-start project
+
+    $ git clone git@github.com:MadeInHaus/haus-start.git
+    ./haus-start/bin/haus-start ProjectName
+
+
+Following hasn't been tested:
+    pip install git+https://github.com/madeinhaus/haus-start.git
+    haus-start ProjectName
+
+
 
 This will use the default project template, which includes
 HAUS's [django-template](https://github.com/madeinhaus/django-template).
@@ -16,13 +24,9 @@ HAUS's [django-template](https://github.com/madeinhaus/django-template).
 Running a project
 -----------------
 
-    cd example
-    sh scripts/setup.sh
-    source env/bin/activate
-    cd project
-    python manage.py syncdb
-    python manage.py runserver
-
+    vagrant up
+    fab syncdb
+    fab runserver
 
 How does it work
 ================
