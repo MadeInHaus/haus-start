@@ -58,10 +58,10 @@ Finally, to use the newly created template, just indicate its path as the `--tem
 $ git clone git@github.com:MadeInHaus/haus-start.git
 $ ./haus-start/bin/haus-start BestProject
 $ cd BestProject/
+```
+```
 $ vagrant up
-```
 
-```
 [default] Importing base box 'precise64'...
 [default] The guest additions on this VM do not match the install version of
 VirtualBox! This may cause things such as forwarded ports, shared
@@ -104,6 +104,8 @@ notice: /Stage[main]/App::Redis/File[redis.conf]/content: content changed '{md5}
 notice: /Stage[main]/App::Redis/Service[redis-server]: Triggered 'refresh' from 1 events
 notice: /Stage[main]/App::Vim/Package[vim]/ensure: ensure changed 'purged' to 'present'
 notice: Finished catalog run in 699.21 seconds
+```
+```
 
 $ fab syncdb
 
@@ -115,6 +117,8 @@ $ fab syncdb
 [vagrant@127.0.0.1:2222] out: E-mail address: joshua_t@madeinhaus.com
 [vagrant@127.0.0.1:2222] out: Password: 
 [vagrant@127.0.0.1:2222] out: Password (again): 
+```
+```
 
 
 $ fab runserver 
@@ -145,6 +149,8 @@ Warning: run() received nonzero return code 123 while executing 'ps ax | grep [p
 
 $ bg
 [2]+ fab runserver &
+```
+```
 
 $ curl 127.0.0.1:8080
 
