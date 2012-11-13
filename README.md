@@ -13,6 +13,7 @@ Creating a project
 
 
 Following hasn't been tested:
+
     pip install git+https://github.com/madeinhaus/haus-start.git
     haus-start ProjectName
 
