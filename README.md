@@ -12,9 +12,9 @@ Creating a project
     ./haus-start/bin/haus-start ProjectName
 
 
-Following hasn't been tested:
+Following still needs to be fixed:  (needs to checkout template in install process)
 
-    pip install git+https://github.com/madeinhaus/haus-start.git
+    pip install  git+https://github.com/MadeInHaus/haus-start.git
     haus-start ProjectName
 
 
