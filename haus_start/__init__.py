@@ -18,11 +18,12 @@ def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
         current_dir = os.getcwdu()
         os.chdir(os.path.join(os.path.dirname(__file__), '..'))
         if not os.path.exists(os.path.join(copy_from, '.git')):
-             print "Initializing django-templat submodule"
-             os.system("git submodule init")
-        os.system("git submodule update")
+            print "Initializing django-template submodule"
+            os.system("git submodule init")
+        if os.path.exists(os.path.join(copy_from, '.git')):
+            os.system("git submodule update")
+            print "django-template submodule updated\n"
         os.chdir(current_dir)
-        print "django-template submodule updated\n"
 
 
     if not copy_to:
