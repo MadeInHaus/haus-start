@@ -1,4 +1,4 @@
-HAUS-start installs a script which allows the easy creation of Django
+haus-start installs a script which allows the easy creation of Django
 projects and applications.  Based on the red-start project from RED interactive.
 
 How to use
@@ -41,7 +41,7 @@ Running haus-start does three simple things:
 2. Copies in that folder all the files included in the project template folder. This can be specified with the `--template-dir` option; the default is `templates/project/django-template`.
 3. If a file called `haus_start_settings.py` is present in that folder, and if it contains a function called `after_copy`, then that file is loaded and that function executed.
 
-As an example, in the case of the django-template project template, the [after_copy function](https://github.com/madeinhaus/haus-start/blob/master/haus_start/templates/project/django-template/haus_start_settings.py) downloads an HTML5 boilerplate from GitHub, prompts the user for some variables and substitutes them in the template. This is just an example, other project templates can perform any other operation.
+As an example, in the case of the django-template project template, the [after_copy function](https://github.com/madeinhaus/haus-start/blob/master/haus_start/templates/project/django-template/haus_start_settings.py)  prompts the user for some variables and substitutes them in the template. This is just an example, other project templates can perform any other operation.
 
 
 Creating a new project template
@@ -106,7 +106,6 @@ notice: /Stage[main]/App::Vim/Package[vim]/ensure: ensure changed 'purged' to 'p
 notice: Finished catalog run in 699.21 seconds
 ```
 ```
-
 $ fab syncdb
 
 [vagrant@127.0.0.1:2222] out: You just installed Django's auth system, which means you don't have any superusers defined.
@@ -119,8 +118,6 @@ $ fab syncdb
 [vagrant@127.0.0.1:2222] out: Password (again): 
 ```
 ```
-
-
 $ fab runserver 
 
 [vagrant@127.0.0.1:2222] Executing task 'runserver'
@@ -151,7 +148,6 @@ $ bg
 [2]+ fab runserver &
 ```
 ```
-
 $ curl 127.0.0.1:8080
 
 <!DOCTYPE html>
