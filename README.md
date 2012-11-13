@@ -25,6 +25,7 @@ HAUS's [django-template](https://github.com/madeinhaus/django-template).
 Running a project
 -----------------
 
+    cd ProjectName
     vagrant up
     fab syncdb
     fab runserver
