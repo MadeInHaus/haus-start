@@ -24,7 +24,7 @@ setup(
     version=__import__('haus_start').__version__,
     description='Create a Django project based on HAUS best practices.',
     author='HAUS',
-    author_email='cmsadmin@madeinhaus.com',
+    author_email='cms-admin@madeinhaus.com',
     url='http://github.com/madeinhaus/haus-start/',
     packages=[
         'haus_start',
