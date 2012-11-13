@@ -61,6 +61,7 @@ $ cd BestProject/
 $ vagrant up
 ```
 
+```
 [default] Importing base box 'precise64'...
 [default] The guest additions on this VM do not match the install version of
 VirtualBox! This may cause things such as forwarded ports, shared
