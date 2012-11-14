@@ -31,6 +31,7 @@ setup(
     ],
     package_data={ 'haus_start' : data_files },
     scripts=['bin/haus-start'],
+    install_requires=['Fabric'],
     classifiers=[
           'Development Status :: 3 - Alpha',
           'Environment :: Web Environment',
