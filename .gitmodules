@@ -1,3 +1,0 @@
-[submodule "haus_start/templates/project/django-template"]
-	path = haus_start/templates/project/django-template
-	url = git@github.com:MadeInHaus/django-template.git
