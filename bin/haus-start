@@ -49,7 +49,7 @@ def main(args):
 
     no_prompt=False
     no_git = False
-    template_dir = None
+    template = None
 
     try:
         opts, args = getopt.getopt(args, "hsv", [ "template=", "help", "no-prompt", "no-git", "version"])
