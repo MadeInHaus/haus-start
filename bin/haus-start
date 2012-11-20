@@ -6,11 +6,9 @@ import getopt
 def usage(code = 2, message=None):
     help = """Create a Django project from a template.
 
-    --template-dir
-    The directory to use as the template for the new project. The template
-    directory should contain a file named haus_start_settings.py that has a
-    callable after_copy that will be run once the files have been copied.
-
+    --template
+    template.json file to use
+    
     --help -h
     Prints this message
 
@@ -23,7 +21,7 @@ def usage(code = 2, message=None):
 
     if message:
         print >> sys.stderr, message
-    print "usage: haus-start [--template-dir=templatedir] [--no-prompt or -s] [--no-git] project_name"
+    print "usage: haus-start [--template=template.json] [--no-prompt or -s] [--no-git] project_name"
     print "usage: haus-start [--help]"
     print "usage: haus-start [--version or -v]"
     if code == 0:
@@ -54,17 +52,17 @@ def main(args):
     template_dir = None
 
     try:
-        opts, args = getopt.getopt(args, "hsv", [ "template-dir=", "help", "no-prompt", "no-git", "version"])
+        opts, args = getopt.getopt(args, "hsv", [ "template=", "help", "no-prompt", "no-git", "version"])
     except getopt.GetoptError, err:
         print str(err)
         usage()
 
     for o, a in opts:
-        if o == "--template-dir":
-            if os.path.isdir(a):
-                template_dir = a
+        if o == "--template":
+            if os.path.exists(a):
+                template = a
             else:
-                usage(message="invalid directory %s" % a)
+                usage(message="invalid file %s" % a)
         elif o in ("-h", "--help"):
             usage(0)
         elif o in ("-v", "--version"):
@@ -85,7 +83,7 @@ def main(args):
     else:
         project_folder = args[0]
 
-    haus_start.start_project(project_folder, template_dir, no_prompt, no_git)
+    haus_start.start_project(project_folder, template, no_prompt, no_git)
     sys.path.remove(pos_dir)
 
 if __name__ == "__main__":
