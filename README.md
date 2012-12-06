@@ -28,8 +28,8 @@ Running a project
 
     cd ProjectName
     vagrant up
-    fab syncdb
-    fab runserver
+    fab vagrant.syncdb
+    fab vagrant.runserver
 
 How does it work
 ================
