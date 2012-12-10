@@ -4,8 +4,6 @@ import glob
 import os
 import subprocess
 
-subprocess.call(["git", 'submodule', 'init'])
-subprocess.call(["git", 'submodule', 'update'])
 
 base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'haus_start'))
 
