@@ -1,4 +1,3 @@
-
 {
 	"name": "django-template",
 	"version": "0.0.1",
@@ -12,8 +11,8 @@
 		"html-boilerplate": {
 			"zip": "https://github.com/MadeInHaus/html-boilerplate/archive/master.zip",
 			"target": {
-                "resources": "project/static"
-                }
+                		"resources": "project/static"
+                	}
 		}
 	}
 }
