@@ -11,8 +11,8 @@
 		"html-boilerplate": {
 			"clone": "git@github.com:MadeInHaus/html-boilerplate.git",
 			"target": {
-                "resources": "project/static"
-                }
+                		"resources": "project/static"
+                	}
 		}
 	}
 }
