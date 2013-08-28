@@ -1,0 +1,12 @@
+{
+	"name": "html-boilerplate",
+	"version": "0.0.1",
+	"author": "Haus Admin <cms-admin@madeinhaus.com>",
+	"description": "",
+	"fetch": {
+		"html-boilerplate": {
+			"zip": "https://github.com/MadeInHaus/html-boilerplate/archive/master.zip",
+			"target": ""
+		}
+	}
+}

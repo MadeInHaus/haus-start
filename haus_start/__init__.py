@@ -13,7 +13,7 @@ __version__ = '.'.join(VERSION)
 
 
 def clean_copy(dirname):
-    # remove un-needed files 
+    # remove un-needed files
     matches = []
     for root, _dirnames, filenames in os.walk(dirname):
         for filename in fnmatch.filter(filenames, '*.pyc') + \
@@ -23,8 +23,8 @@ def clean_copy(dirname):
     for m in matches:
         if os.path.exists(m):
             os.remove(m)
-            
-            
+
+
 def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
     if not copy_from:
         copy_from = os.path.abspath(os.path.join(os.path.dirname(__file__),
@@ -38,7 +38,7 @@ def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
             return
 
     libs = parse_template_file(copy_from, copy_to)
-    
+
     for lib in libs:
         lib.fetch()
 
@@ -54,7 +54,7 @@ def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
             os.chdir(copy_to)
             haus_start_settings.after_copy(no_prompt=no_prompt, no_git=no_git)
         sys.path.remove(copy_to)
-        
+
         # remove post copy settings file
         os.remove('haus_start_settings.py')
         os.remove('haus_start_settings.pyc')

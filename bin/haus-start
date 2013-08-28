@@ -8,7 +8,7 @@ def usage(code = 2, message=None):
 
     --template
     template.json file to use
-    
+
     --help -h
     Prints this message
 
@@ -59,8 +59,11 @@ def main(args):
 
     for o, a in opts:
         if o == "--template":
+            relative_path = os.path.join(__file__, '../../haus_start/templates', a)
             if os.path.exists(a):
                 template = a
+            elif os.path.exists(relative_path):
+                template = relative_path
             else:
                 usage(message="invalid file %s" % a)
         elif o in ("-h", "--help"):
