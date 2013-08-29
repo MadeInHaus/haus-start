@@ -27,8 +27,24 @@ def clean_copy(dirname):
 
 def start_project(copy_to=None, copy_from=None, no_prompt=False, no_git=False):
     if not copy_from:
-        copy_from = os.path.abspath(os.path.join(os.path.dirname(__file__),
-                                    'templates', 'project', 'template.json'))
+        basedir = os.path.join(os.path.dirname(__file__), 'templates/project')
+        default_template = os.path.join(basedir, 'template.json')
+        templates = [file_ for file_ in os.listdir(basedir) if file_.endswith('.json')]
+        default = {
+            file_: index for index, file_ in enumerate(templates)
+        }[os.path.split(default_template)[1]] + 1
+        prompt = '\nAvailable templates:\n{}\n Choose an option [{}]: '.format('\n'.join(
+            '{}. {}'.format(index + 1, filename)
+            for index, filename
+            in enumerate(templates)
+        ), default)
+
+        template = raw_input(prompt)
+
+        if template:
+            copy_from = os.path.join(basedir, templates[int(template) - 1])
+        else:
+            copy_from = default_template
 
     if not copy_to:
         copy_to = os.getcwd()
