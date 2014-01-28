@@ -1,18 +1,18 @@
 {
-	"name": "django-template",
-	"version": "0.0.1",
-	"author": "Haus Admin <cms-admin@madeinhaus.com>",
-	"description": "",
-	"fetch": {
-		"django-template": {
-			"zip": "https://github.com/MadeInHaus/django-template/archive/master.zip",
-			"target": ""
-		},
-		"html-boilerplate": {
-			"zip": "https://github.com/MadeInHaus/html-boilerplate/archive/master.zip",
-			"target": {
-               			"static": "project/static"
-            		}
-		}
-	}
+    "name": "django-template",
+    "version": "0.0.1",
+    "author": "Haus Admin <cms-admin@madeinhaus.com>",
+    "description": "",
+    "fetch": {
+        "django-template": {
+            "zip": "https://github.com/MadeInHaus/django-template/archive/master.zip",
+            "target": ""
+        },
+        "html-boilerplate": {
+            "zip": "https://github.com/MadeInHaus/html-boilerplate/archive/master.zip",
+            "target": {
+                "static": "project/static"
+            }
+        }
+    }
 }
