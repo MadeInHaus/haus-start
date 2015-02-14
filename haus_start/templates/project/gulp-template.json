@@ -1,0 +1,20 @@
+{
+    "name": "django-template",
+    "version": "0.0.1",
+    "author": "Haus Admin <cms-admin@madeinhaus.com>",
+    "description": "",
+    "fetch": {
+        "django-template": {
+            "zip": "https://github.com/MadeInHaus/django-template/archive/feature-use-gulp-template.zip",
+            "target": {
+                "": ""
+            }
+        },
+        "html-boilerplate": {
+            "zip": "https://github.com/MadeInHaus/backbone-marionette-gulp-starter/archive/master.zip",
+            "target": {
+                "": "frontend"
+            }
+        }
+    }
+}
