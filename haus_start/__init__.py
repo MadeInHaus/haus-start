@@ -8,7 +8,7 @@ import fnmatch
 from random import choice
 from haus_start.template import parse_template_file
 
-VERSION = ('0', '1', '0')
+VERSION = ('0', '1', '1')
 __version__ = '.'.join(VERSION)
 
 
